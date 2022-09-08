@@ -1,0 +1,40 @@
+{
+  "name": "tdd-string-calculator",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "Félix Vonthron <felix.vonthron@gmail.com>",
+  "scripts": {
+    "test": "cross-env NODE_ENV=test jest"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jest": "^28.0.0",
+    "@types/node": "^18.7.0",
+    "cross-env": "^7.0.0",
+    "jest": "^28.0.0",
+    "ts-jest": "^28.0.0",
+    "typescript": "^4.8.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text",
+      "html"
+    ],
+    "transform": {
+      "^.+\\.ts?$": "ts-jest"
+    },
+    "testRegex": "(\\.|/)(test)\\.(js|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json",
+      "node"
+    ]
+  }
+}

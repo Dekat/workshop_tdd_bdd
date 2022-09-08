@@ -1,0 +1,10 @@
+# Python
+/**/.pytest_cache/
+
+# Node / Typescript
+/**/node_modules/
+/**/package-lock.json
+
+# IDEs
+.idea/
+.vscode/

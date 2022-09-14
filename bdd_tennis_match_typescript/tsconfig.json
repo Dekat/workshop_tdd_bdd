@@ -2,7 +2,11 @@
   "compileOnSave": true, // currently supported in Visual Studio 2015 with TypeScript 1.8.4 and above, and atom-typescript plugin.
   "compilerOptions": {
     "allowJs": true,
+    "target": "es6",
     "module": "commonjs",
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
     "moduleResolution": "node",
     "removeComments": true,
     "preserveConstEnums": true,
@@ -12,6 +16,6 @@
     "alwaysStrict": true,
     "types": ["node", "jest"]
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "features/**/*"],
   "exclude": ["node_modules"]
 }

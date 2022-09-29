@@ -1,5 +1,8 @@
 import {GameController} from "../../domain/ports/game-controller";
-import {incrementPlayerScoreUseCase} from "../../registry";
+import {registry} from "../../inversify.config";
+import {IncrementPlayerScore} from "../../domain/use-cases/increment-player-score";
+import {TYPES} from "../../types";
+import {GetScore} from "../../domain/use-cases/get-score";
 
 export class UiController implements GameController {
     private readonly gameId: number;
@@ -9,15 +12,18 @@ export class UiController implements GameController {
     }
 
     getScore(): string {
-        // TODO
-        return "";
+        return registry.get<GetScore>(TYPES.GetScore).perform(this.gameId);
     }
 
     incrementFirstPlayerScore(): void {
-        incrementPlayerScoreUseCase.perform(true, this.gameId);
+        registry.get<IncrementPlayerScore>(TYPES.IncrementPlayerScore).perform(
+          true, this.gameId
+        );
     }
 
     incrementSecondPlayerScore(): void {
-        incrementPlayerScoreUseCase.perform(false, this.gameId);
+        registry.get<IncrementPlayerScore>(TYPES.IncrementPlayerScore).perform(
+          false, this.gameId
+        );
     }
 }

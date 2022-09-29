@@ -2,15 +2,12 @@ import {describe, expect, test} from '@jest/globals';
 import {Game} from "./game";
 
 describe('Game class tests', () => {
-  test('Should return good score when with numbers', () => {
+  test('Should start new games with a 0-0 score', () => {
     // Given
-    const game = new Game();
-
-    // When
-    const score = game.getScore();
+    const game = new Game(1);
 
     // Then
-    // TODO: this test always fails... Upgrade it!
-    expect(score).toBe("40 - 15");
-  })
+    expect(game.playerOneNumberOfPointsWon).toBe(0);
+    expect(game.playerTwoNumberOfPointsWon).toBe(0);
+  });
 });

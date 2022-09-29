@@ -1,20 +1,25 @@
 import {Game} from "../../src/domain/entities/game";
 import {Given, When, Then} from "@cucumber/cucumber";
 import assert from "assert";
-
+import {IncrementPlayerScore} from "../../src/domain/use-cases/increment-player-score";
+import {TYPES} from "../../src/types";
+import {registry} from "../../src/inversify.config";
+import {UiController} from "../../src/infrastructure/controllers/ui-controller";
+import {GameRepository} from "../../src/domain/ports/game-repository";
 
 Given('a tennis match with score "30 - 15"', function () {
-  // TODO: Update this parser
-  // TODO: Init data in context
-  this.game = new Game();
+  this.gameId = 1;
+  this.uiController = new UiController();
+  registry.get<GameRepository>(TYPES.GameRepository).saveGame(
+    new Game(this.gameId, 2, 1)
+  );
 });
 
-When('first player scores', function () {
-  // TODO: call something
+When('referee clicks on button to increment first player score', function () {
+  this.uiController.incrementFirstPlayerScore();
 });
 
 Then('score should be "40 - 15"', function () {
-  // TODO: Update this parser
-  // TODO: assert something
-  assert.equal(this.game.getScore(), "40 - 15");
+  const currentScore = this.uiController.getScore();
+  assert.equal(currentScore, "40 - 15");
 });

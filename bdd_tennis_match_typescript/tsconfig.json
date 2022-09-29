@@ -14,7 +14,9 @@
     "lib": ["es6"],
     "outDir": "lib",
     "alwaysStrict": true,
-    "types": ["node", "jest"]
+    "types": ["node", "jest", "reflect-metadata"],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   },
   "include": ["src/**/*", "features/**/*"],
   "exclude": ["node_modules"]

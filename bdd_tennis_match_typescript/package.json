@@ -7,7 +7,10 @@
     "test:unit": "cross-env NODE_ENV=test jest",
     "test:behavior": "cross-env NODE_ENV=test npx cucumber-js --publish-quiet --config cucumber.config.json"
   },
-  "dependencies": {},
+  "dependencies": {
+    "inversify": "^6.0.1",
+    "reflect-metadata": "^0.1.13"
+  },
   "devDependencies": {
     "@cucumber/cucumber": "^8.5.2",
     "@types/jest": "^28.0.0",
